@@ -33,6 +33,11 @@ jobs:
       # - name: Analyze project source
       #   run: flutter analyze
 
+            # Run tests and generate coverage
+      - name: Run tests with coverage
+        run: flutter test --coverage  # No path needed, Flutter handles it
+
+
  
 
       # # Upload coverage reports to Codecov
