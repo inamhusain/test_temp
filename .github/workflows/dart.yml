@@ -35,9 +35,7 @@ jobs:
 
             # Run tests and generate coverage
       - name: Run tests with coverage
-        run: |
-          flutter test --coverage  # Generate coverage file
-          flutter test --reporter=json > test/test-results.json  # Generate JUnit XML test results
+        run:  flutter test --coverage --reporter=json > test/test-results.json
 
       - name: Upload test results to Codecov
         if: ${{ !cancelled() }}
