@@ -37,7 +37,11 @@ jobs:
       - name: Run tests with coverage
         run: flutter test --coverage  # No path needed, Flutter handles it
 
-
+      - name: Upload test results to Codecov
+        if: ${{ !cancelled() }}
+        uses: codecov/test-results-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
  
 
       # # Upload coverage reports to Codecov
