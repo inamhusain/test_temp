@@ -33,6 +33,15 @@ jobs:
       # - name: Analyze project source
       #   run: flutter analyze
 
+            # Run tests and generate coverage
+      - name: Run tests with coverage
+        run:  flutter test --coverage --reporter=json > test/test-results.json
+
+      - name: Upload test results to Codecov
+        if: ${{ !cancelled() }}
+        uses: codecov/test-results-action@v1
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
  
 
       # # Upload coverage reports to Codecov
